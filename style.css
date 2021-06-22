@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,400&display=swap');
+
+:root{
+  --line-angle-line1:1485deg;
+  --line-angle-line2:-1485deg
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: linear-gradient(25deg, #100576, #41069b, #6908c1, #910ae9);
+  margin: 0;
+  font-family: 'Roboto',sans-serif;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+nav{
+  background-color:white;
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px black;
+  transition: width 0.5s linear;
+  position: relative;
+}
+nav.active{
+  width: 450px;
+  height: 50px;
+  background-color: #fff;
+}
+
+nav ul{
+  display: flex;
+  opacity: 0;
+  margin: 5px;
+  padding: 10px;
+  list-style: none;
+  transition: transform .5s linear, opacity .5s linear;
+}
+nav.active ul{
+  display: flex;
+  opacity: 1;
+  
+}
+nav ul li{
+  padding: 10px;
+  transform: rotateY(0deg);
+  opacity: 0;
+  transition: transform .5s linear, opacity .5s linear;
+}
+nav.active ul li {
+  opacity: 1;
+  transform: rotateY(360deg);
+  
+}
+nav ul a{
+  position: relative;
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.icon{
+  background-color: transparent;
+  height: 100%;
+  width: 80%;
+  border: 0;
+  z-index: 100;
+}
+.icon .line{
+  background-color: black;
+  height: 3.5px;
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: transform 0.5s linear;
+}
+.icon .line-2{
+  top: 25px;
+}
+nav.active .icon .line-2{
+  transform: rotate(var(--line-angle-line2)) translate(5.5px) ;
+}
+nav.active .icon .line-1{
+  transform: rotate(var(--line-angle-line1)) translate(5.5px) ;
+}
